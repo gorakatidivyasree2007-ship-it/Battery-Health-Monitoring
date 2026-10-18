@@ -1,0 +1,16 @@
+int batteryPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  float voltage = analogRead(batteryPin) * 5.0 / 1023.0;
+  Serial.print("Measured voltage: ");
+  Serial.println(voltage);
+
+  if (voltage < 3.3)
+    Serial.println("Low voltage warning!");
+
+  delay(1000);
+}
